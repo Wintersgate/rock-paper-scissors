@@ -13,7 +13,6 @@ function getComputerChoice () {
 
 //Game round//
 
-
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Game Tied!";
@@ -51,9 +50,9 @@ function playGame () {
     }
 
     if (wins >= 3) {
-        console.log("Victory Achieved! You won " +wins+ " out of 5 times"); 
+        console.log("Victory Achieved! You won " + wins + " out of 5 times"); 
     } else {
-        console.log("Defeat! You only won " +wins+ " out of 5 times");
+        console.log("Defeat! You only won " + wins + " out of 5 times");
     }
 }
 
