@@ -18,17 +18,17 @@ function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "Game Tied!";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose! The computer chose " + computerSelection;
+        return "You lose! " + computerSelection + " beats " + playerSelection;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You win! The computer chose " + computerSelection;
+        return "You win! " + playerSelection + " beats " + computerSelection;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You win! The computer chose " + computerSelection;
+        return "You win! " + playerSelection + " beats " + computerSelection;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return "You lose! The computer chose " + computerSelection;
+        return "You lose! " + computerSelection + " beats " + playerSelection;
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return "You lose! The computer chose " + computerSelection;
+        return "You lose! " + computerSelection + " beats " + playerSelection;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You win! The computer chose " + computerSelection;
+        return "You win! " + playerSelection + " beats " + computerSelection;
     } 
 }
 
@@ -44,7 +44,7 @@ function playGame () {
         const result = playRound(playerSelection, computerSelection);
         console.log(result);
 
-        if (result === "You win! The computer chose " + computerSelection) {
+        if (result === "You win! " + playerSelection + " beats " + computerSelection) {
             wins++;
             console.log(wins);
         }
