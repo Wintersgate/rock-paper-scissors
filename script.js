@@ -15,7 +15,7 @@ function getComputerChoice () {
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return "Game Tied!";
+        return "Round Tied!";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         return "You lose! " + computerSelection + " beats " + playerSelection;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -35,6 +35,7 @@ function playRound (playerSelection, computerSelection) {
 
 function playGame () {
     let wins = 0;
+    let losses = 0;
 
     for (let i = 0; i < 5; i++) {
         const userInput = prompt("Rock, Paper, or Scissors?", "");
@@ -45,14 +46,19 @@ function playGame () {
 
         if (result === "You win! " + playerSelection + " beats " + computerSelection) {
             wins++;
-            console.log(wins);
+        }
+
+        if (result === "You lose! " + computerSelection + " beats " + playerSelection) {
+            losses++;
         }
     }
 
-    if (wins >= 3) {
+    if (wins > losses) {
         console.log("Victory Achieved! You won " + wins + " out of 5 times"); 
-    } else {
+    } else if (wins < losses) {
         console.log("Defeat! You only won " + wins + " out of 5 times");
+    } else {
+        console.log("Game Tied!")
     }
 }
 
