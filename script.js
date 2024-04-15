@@ -1,3 +1,5 @@
+const buttons = document.querySelectorAll('button');
+
 //Generate Computers Answer (R/P/S)//
 
 function getComputerChoice () {
@@ -31,35 +33,20 @@ function playRound (playerSelection, computerSelection) {
     } 
 }
 
-//Game loop//
-
 function playGame () {
-    let wins = 0;
-    let losses = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const userInput = prompt("Rock, Paper, or Scissors?", "");
-        const playerSelection = userInput.toLowerCase();
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
-        console.log(result);
-
-        if (result === "You win! " + playerSelection + " beats " + computerSelection) {
-            wins++;
-        }
-
-        if (result === "You lose! " + computerSelection + " beats " + playerSelection) {
-            losses++;
-        }
-    }
-
-    if (wins > losses) {
-        console.log("Victory Achieved! You won " + wins + " out of 5 times"); 
-    } else if (wins < losses) {
-        console.log("Defeat! You only won " + wins + " out of 5 times");
-    } else {
-        console.log("Game Tied!")
-    }
+    let playerSelection;
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.id === 'rock') {
+                playerSelection = 'rock';
+            } else if (button.id === 'paper') {
+                playerSelection = 'paper';
+            } else if (button.id === 'scissors') {
+                playerSelection = 'scissors';
+            }
+            console.log(playerSelection);
+        });
+    });
 }
 
 playGame();
