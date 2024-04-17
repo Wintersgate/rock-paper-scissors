@@ -44,7 +44,9 @@ function playGame () {
             } else if (button.id === 'scissors') {
                 playerSelection = 'scissors';
             }
-            console.log(playerSelection);
+            const computerSelection = getComputerChoice();
+            const result = playRound(playerSelection, computerSelection);
+            console.log(result);
         });
     });
 }
