@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    margin-top: 200px;
+    background-color: rgb(189, 219, 219);
+}
+
+#container {
+    background-color: white;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding: 50px;
+}
+
+button {
+    font-size: 25px;
+}
+
+#score {
+    display: flex;
+    justify-content: space-between;
+}
+
+#final {
+    font-size: 25px;
+}
