@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll('button');
-const container = document.querySelector('#container');
+const roundText = document.querySelector('#round-text');
 const score = document.querySelector('#score');
 const winText = document.querySelector('#wins');
 const lossText = document.querySelector('#losses');
@@ -53,8 +53,7 @@ function playGame () {
             }
             const computerSelection = getComputerChoice();
             const result = playRound(playerSelection, computerSelection);
-            console.log(result);
-            container.innerText = result;
+            roundText.innerText = result;
 
             if (result === "You win! " + playerSelection + " beats " + computerSelection) {
                 wins++;
