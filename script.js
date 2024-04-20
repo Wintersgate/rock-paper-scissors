@@ -1,4 +1,9 @@
 const buttons = document.querySelectorAll('button');
+const container = document.querySelector('#container');
+const score = document.querySelector('#score');
+const winText = document.querySelector('#wins');
+const lossText = document.querySelector('#losses');
+const finalScore = document.querySelector('#final');
 
 //Generate Computers Answer (R/P/S)//
 
@@ -34,6 +39,8 @@ function playRound (playerSelection, computerSelection) {
 }
 
 function playGame () {
+    let wins = 0;
+    let losses = 0;
     let playerSelection;
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -47,6 +54,24 @@ function playGame () {
             const computerSelection = getComputerChoice();
             const result = playRound(playerSelection, computerSelection);
             console.log(result);
+            container.innerText = result;
+
+            if (result === "You win! " + playerSelection + " beats " + computerSelection) {
+                wins++;
+                winText.innerText = 'Wins: ' + wins;
+            }
+    
+            if (result === "You lose! " + computerSelection + " beats " + playerSelection) {
+                losses++;
+                lossText.innerText = 'Losses: ' + losses;
+            }
+
+            if (wins >= 5) {
+                finalScore.textContent = 'Victory! You have won 5 rounds.';
+            } else if (losses >= 5) {
+                finalScore.textContent = 'Defeat! Your opponent has won 5 rounds.';
+            }
+
         });
     });
 }
